@@ -1,0 +1,17 @@
+{
+  "name": "kinkajs",
+  "homepage": "https://kinkajs.github.io/kinka.js/",
+  "description": "Pretty zebra finches (kinka-cho) on your website.",
+  "main": "kinka.js",
+  "authors": [
+    "Matsu & Market U"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
