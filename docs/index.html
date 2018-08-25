@@ -1,13 +1,61 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kinka.js</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kinka.js</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .per1 {
+      position: absolute;
+      background-color: #444;
+      height: 20px;
+      min-width: 20px;
+      width: 30%;
+      bottom: 300px;
+      left: 40px;
+    }
+
+    .per2 {
+      position: absolute;
+      background-color: #444;
+      height: 20px;
+      min-width: 20px;
+      width: 30%;
+      bottom: 450px;
+      left: calc(50% - 15%);
+    }
+
+    .per3 {
+      position: absolute;
+      background-color: #444;
+      height: 20px;
+      min-width: 20px;
+      width: 30%;
+      bottom: 600px;
+      right: 40px;
+    }
+
+
+
+
+  </style>
 </head>
 <body>
-    <h1>Kinka.js</h1>
-    <img src="kinkajs.png">
+  <script src="https://raw.githubusercontent.com/kinkajs/kinka.js/master/kinka.js"></script>
+  <div class="birds"></div>
+  <div class="birds"></div>
+  <h1>Kinka.js</h1>
+  <div class="perch logo"><img src="kinkajs.png"></div>
+  <div class="perch per1"></div>
+  <div class="perch per2"></div>
+  <div class="perch per3"></div>
 </body>
 </html>

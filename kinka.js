@@ -1,7 +1,7 @@
 (()=>{
 	'use strict'
 
-	const ASSET_FILE = "spritesheet.png"
+	const ASSET_FILE = "./spritesheet.png"
 	const BIRD_SIZE = 50
 	const BIRD_BOTTOM_OFFSET = 10
 	const FLY_SPEED = 200
