@@ -9,7 +9,8 @@
 	const SPLITE_NONE = 0
 	const SPLITE_STAY = 1
 	const SPLITE_WALK = 2
-	const SPLITE_FLY = 3
+	const SPLITE_FLY_UP = 3
+	const SPLITE_FLY_DOWN = 4
 
 	let CURRENT_PATH = ""
 	let birds = []
@@ -122,7 +123,6 @@
 		}
 
 		_stay() {
-			console.log(this.tapTarget)
 			if ((this.tapTarget.top) && (Math.random() < 1.9)) {
 				this.setTarget(this.tapTarget, this.fly)
 				this.tapTarget = {}
@@ -142,29 +142,20 @@
 		}
 
 		fly() {
-			this._splite(SPLITE_FLY)
-
 			let diff = {}
 			diff.top = this.target.top - pxTrim(this.el.style.top)
 			diff.left = this.target.left - pxTrim(this.el.style.left)
 			let dx = Math.abs(diff.top)
-			let dy = Math.abs(diff.left)
-
-			let deg = (180 * diff.top / dy / Math.PI) % 360 * (-1)
-
-			console.log(deg)
-			// if (deg < -35) {
-			// 	deg = -35
-			// }
-			// deg = deg + 10
-
-			deg = deg / 2 -35
-			
-
+			let dy = Math.abs(diff.left)			
 			this._setDirection(diff.left)
-
 			let distance = Math.sqrt(dx * dx + dy * dy)
-			
+
+			if (diff.top > 0) {
+				this._splite(SPLITE_FLY_DOWN)
+			} else {
+				this._splite(SPLITE_FLY_UP)
+			}
+
 			let time = distance / FLY_SPEED
 			this.el.style.transition = `${time}s top, ${time}s left, ${time}s rotate`
 			this.el.style.transitionTimingFunction = "ease-out"
@@ -199,10 +190,18 @@
 			}
 
 			switch(this._spliteMode) {
-				case SPLITE_FLY:
-					if (this.count % 3 == 0) {
+				case SPLITE_FLY_UP:
+				case SPLITE_FLY_DOWN:
+					let count = this.count
+					if (this._spliteMode == SPLITE_FLY_DOWN) {
+						count = Math.floor(this.count / 4)
+					} else {
+						count = Math.floor(this.count / 2)
+					}
+
+					if (count % 3 == 0) {
 						this.el.style.backgroundPosition = `${BIRD_SIZE*1}px 0px`
-					} else if (this.count % 2 == 0) {
+					} else if (count % 2 == 0) {
 						this.el.style.backgroundPosition = `${BIRD_SIZE*2}px 0px`
 					} else {
 						this.el.style.backgroundPosition = `${BIRD_SIZE*3}px 0px`
@@ -261,9 +260,7 @@
 
 		for (let i = 0, len = birds.length; i < len; i++) {
 			birds[i].perchIndex = -1
-			console.log("here!!!")
 			birds[i].tapTarget = {top:e.clientY - BIRD_SIZE + BIRD_BOTTOM_OFFSET, left:e.clientX - BIRD_SIZE / 2}
-			console.log(this.tapTarget)
 		}
 	}
 
