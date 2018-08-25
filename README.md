@@ -2,8 +2,12 @@
 # kinka.js
 
 
-## install
+## Install
 
-    ```cmd
     bower install kinkajs
-    ```
+
+
+## Demo
+
+[Demo Page](https://kinkajs.github.io/kinka.js/)
+
