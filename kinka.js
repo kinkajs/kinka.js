@@ -117,12 +117,11 @@
 			this.el.style.backgroundPosition = `0px 0px`
 			this._setDirection()
 
-			if ((Math.random() < 0.1)){
+			if ((Math.random() < 0.1) && (this.perchIndex != -1)) {
 				this.setTarget(perches[this.perchIndex].getTarget(), this.walk)
 			} else {
 				this.stay()
 			}
-
 		}
 
 		stay() {
