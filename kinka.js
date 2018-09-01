@@ -5,7 +5,7 @@
 	const ASSET_FILES = ["sprite.png", "sprite2.png", "sprite3.png"]
 	const KINKA_SIZE = 50
 	const KINKA_BOTTOM_OFFSET = 10
-	const KINKA_BOTTOM_OFFSET_TAP = KINKA_SIZE + 30
+	const KINKA_BOTTOM_OFFSET_TAP = KINKA_SIZE + 50
 	const FLY_SPEED = 200
 	const WALK_SPEED = 80
 	const FLY_ASCEND_SKIPFRAME = 2
@@ -16,6 +16,8 @@
 	const SPLITE_WALK = 2
 	const SPLITE_FLY_UP = 3
 	const SPLITE_FLY_DOWN = 4
+	const KINKA_CLASS_NAME = "kinka"
+	const PERCH_CLASS_NAME = "perch"
 	const SPLITE_CLASS_NAME = "kinkasp"
 
 	let CURRENT_PATH = ""
@@ -64,9 +66,9 @@
 			// Set OtherData
 			this.tapTarget = {}
 			this._staycnt = 100
-			this.perchIndex = 0
+			this.perchIndex = this._getPerchIndex()
 			this.count = Math.round(Math.random() * 300, 0)
-			this.setTarget(perches[0].getTarget(), this.fly)
+			this.setTarget(perches[this.perchIndex].getTarget(), this.fly)
 		}
 
 		_initStyles(element) {
@@ -96,6 +98,21 @@
 				}
 			}
 			return splite
+		}
+
+		_getPerchIndex() {
+			let perchIndex = 0
+			let classes = this.el.className.split(" ")
+			for (let i = 0, l = classes.length; i < l; i++) {
+				if (classes[i].indexOf(PERCH_CLASS_NAME) === 0) {
+					let postfix = parseInt(classes[i].substring(PERCH_CLASS_NAME.length))
+					if ((!isNaN(postfix)) && (postfix > 0)) {
+						postfix--
+						perchIndex = Math.min(postfix, perches.length - 1)
+					}
+				}
+			}
+			return perchIndex
 		}
 
 		setTarget(target, action) {
@@ -228,12 +245,12 @@
 	}
 
 	window.addEventListener('load', () => {
-		let elPerches = document.getElementsByClassName(`perch`)
+		let elPerches = document.getElementsByClassName(PERCH_CLASS_NAME)
 		for (let i = 0; i < elPerches.length; i++){
-			perches.push(new Perch(elPerches[i]))        
+			perches.push(new Perch(elPerches[i]))
 		}
 
-		let elKinkas = document.getElementsByClassName(`kinka`)
+		let elKinkas = document.getElementsByClassName(KINKA_CLASS_NAME)
 		for (let i = 0; i < elKinkas.length; i++){
 			kinkas.push(new Kinka(elKinkas[i]))        
 		}
@@ -277,7 +294,7 @@
 	window.addEventListener('mouseup', () => {_pressup()})
 	window.addEventListener('touchend', () => {_pressup()})
 
-	let animetionFrame = (timestamp) => {
+	let animetionFrame = () => {
 		requestAnimationFrame(animetionFrame)
 		for (let i = 0, len = kinkas.length; i < len; i++) {
 			kinkas[i].animetionCallback()
