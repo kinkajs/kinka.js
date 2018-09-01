@@ -5,7 +5,7 @@
 	const ASSET_FILES = ["sprite.png", "sprite2.png", "sprite3.png"]
 	const KINKA_SIZE = 50
 	const KINKA_BOTTOM_OFFSET = 10
-	const KINKA_BOTTOM_OFFSET_TAP = KINKA_SIZE
+	const KINKA_BOTTOM_OFFSET_TAP = KINKA_SIZE + 30
 	const FLY_SPEED = 200
 	const WALK_SPEED = 80
 	const FLY_ASCEND_SKIPFRAME = 2
