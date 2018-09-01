@@ -5,6 +5,7 @@
 	const ASSET_FILES = ["sprite.png", "sprite2.png", "sprite3.png"]
 	const KINKA_SIZE = 50
 	const KINKA_BOTTOM_OFFSET = 10
+	const KINKA_BOTTOM_OFFSET_TAP = 50
 	const FLY_SPEED = 200
 	const WALK_SPEED = 80
 	const FLY_ASCEND_SKIPFRAME = 2
@@ -243,7 +244,7 @@
 		longtapCnt = 1
 		setTimeout(longtap, 200, e)
 	}
-	let _pressup = (e) => {
+	let _pressup = () => {
 		longtapCnt = 0
 	}
 
@@ -259,22 +260,22 @@
 
 		for (let i = 0, len = kinkas.length; i < len; i++) {
 			kinkas[i].perchIndex = -1 
-			var x, y
+			let top, left
 			if (e instanceof TouchEvent) {
-				x = e.touches[0].clientX
-				y = e.touches[0].clientY
+				left = e.touches[0].clientX - KINKA_SIZE / 2
+				top = e.touches[0].clientY - KINKA_BOTTOM_OFFSET_TAP
 			} else {
-				x = e.clientX
-				y = e.clientY
+				left = e.clientX - KINKA_SIZE / 2
+				top = e.clientY - KINKA_SIZE + KINKA_BOTTOM_OFFSET
 			}			
-			kinkas[i].tapTarget = {top:y - KINKA_SIZE + KINKA_BOTTOM_OFFSET, left:x - KINKA_SIZE / 2}
+			kinkas[i].tapTarget = {top, left}
 		}
 	}
 
 	window.addEventListener('mousedown', (e) => {_pressdown(e)})
 	window.addEventListener('touchstart', (e) => {_pressdown(e)})
-	window.addEventListener('mouseup', (e) => {_pressup(e)})
-	window.addEventListener('touchend', (e) => {_pressup(e)})
+	window.addEventListener('mouseup', () => {_pressup()})
+	window.addEventListener('touchend', () => {_pressup()})
 
 	let animetionFrame = (timestamp) => {
 		requestAnimationFrame(animetionFrame)
