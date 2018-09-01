@@ -258,8 +258,16 @@
 		longtapCnt = 0
 
 		for (let i = 0, len = kinkas.length; i < len; i++) {
-			kinkas[i].perchIndex = -1
-			kinkas[i].tapTarget = {top:e.clientY - KINKA_SIZE + KINKA_BOTTOM_OFFSET, left:e.clientX - KINKA_SIZE / 2}
+			kinkas[i].perchIndex = -1 
+			var x, y
+			if (e instanceof TouchEvent) {
+				x = e.touches[0].clientX
+				y = e.touches[0].clientY
+			} else {
+				x = e.clientX
+				y = e.clientY
+			}			
+			kinkas[i].tapTarget = {top:y - KINKA_SIZE + KINKA_BOTTOM_OFFSET, left:x - KINKA_SIZE / 2}
 		}
 	}
 
