@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <title>Kinka.js[Demo]</title>
   <style>
     html, body {
@@ -13,23 +12,23 @@
       height: 100vh;
       width: 100vw;
       background-color: #fcfcfc;
-      letter-spacing: 0.1em;
-      font-size: 30px;
-      color: #999;
-      font-family: 'Caveat', cursive;
+      letter-spacing: 0.05em;
+      font-size: 16px;
+      color: #c5c5c5;
+      font-family: 'Press Start 2P', cursive;
     }
 
-    a:link { color:#999; text-decoration:none }
-    a:visited { color:#999; text-decoration:none }
-    a:hover { color:#999; text-decoration:none }
-    a:active { color:#999; text-decoration:none }
+    a:link { color:#c5c5c5; text-decoration:none }
+    a:visited { color:#c5c5c5; text-decoration:none }
+    a:hover { color:#c5c5c5; text-decoration:none }
+    a:active { color:#c5c5c5; text-decoration:none }
 
     .logo {
       pointer-events: none;
       position: absolute;
       margin: 0px auto;
       box-sizing: border-box;
-      background-image: url('kinkajs.png');
+      background-image: url('kinkajs_8bit.png');
       background-size: contain;
       width: 70%;
       height: 200px;
@@ -65,12 +64,21 @@
     .gethere {
       cursor: pointer;
       position: absolute;
-      bottom: calc(10% - 20px);
+      bottom: calc(10% - 40px);
       left: 0;
       width: 100%;
-      height: 20px;
-      font-size: 20px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
       text-align: center;
+    }
+
+    .blinking{
+      animation:blink 0.8s ease-in-out infinite alternate;
+    }
+    @keyframes blink{
+        0% {opacity:0.2;}
+        100% {opacity:1;}
     }
 
     .perch {

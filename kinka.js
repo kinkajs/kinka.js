@@ -92,8 +92,10 @@
 			for (let i = 0, l = classes.length; i < l; i++) {
 				if (classes[i].indexOf(SPLITE_CLASS_NAME) === 0) {
 					let postfix = parseInt(classes[i].substring(SPLITE_CLASS_NAME.length))
-					if (!isNaN(postfix)) {
+					if ((!isNaN(postfix)) && (postfix > 0)) {
+						postfix--
 						splite = Math.min(postfix, ASSET_FILES.length - 1)
+						break
 					}
 				}
 			}
@@ -109,6 +111,7 @@
 					if ((!isNaN(postfix)) && (postfix > 0)) {
 						postfix--
 						perchIndex = Math.min(postfix, perches.length - 1)
+						break
 					}
 				}
 			}
