@@ -3,13 +3,15 @@
 </p>
 
 ## kinka.js とは
-ウェブページ内を自由に飛びまわる8bit風の**かわいいキンカチョウ**を表示できます  
+ウェブページ内を自由に飛びまわる8bit風の **かわいいキンカチョウ (英:Zebra finch)** が表示できます  
 [デモはこちら](https://kinkajs.github.io/kinka.js/)
 
+あなたのウェブページでキンカチョウを飼ってみませんか？  
 
 ## Install
-
-    bower install kinkajs
+```
+bower install kinkajs
+```
 
 ## 使い方
 ```html
