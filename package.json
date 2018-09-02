@@ -1,6 +1,6 @@
 {
   "name": "kinkajs",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Pretty zebra finches (kinka-cho) on your website.",
   "main": "kinka.js",
   "directories": {
