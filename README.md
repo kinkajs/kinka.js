@@ -9,8 +9,14 @@
 あなたのウェブページでキンカチョウを飼ってみませんか？  
 
 ## Install
+### bower
 ```
 bower install kinkajs
+```
+
+### npm
+```
+npm install kinkajs
 ```
 
 ## 使い方
