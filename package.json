@@ -1,0 +1,25 @@
+{
+  "name": "kinkajs",
+  "version": "0.0.3",
+  "description": "Pretty zebra finches (kinka-cho) on your website.",
+  "main": "kinka.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinkajs/kinka.js.git"
+  },
+  "keywords": [
+    "kinkajs"
+  ],
+  "author": "Matsu_and_Market-U",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kinkajs/kinka.js/issues"
+  },
+  "homepage": "https://github.com/kinkajs/kinka.js#readme"
+}
