@@ -51,6 +51,7 @@ const KINKA_BOTTOM_OFFSET = 10
 ## Team kinka.js
 * Matsu : 企画、開発
 * Market U : キンカチョウ監修、ドット絵
+* ハッちゃん : キンカチョウ (ドット絵モデル)
 
 ## ライセンス
 ### The MIT License (MIT)  
