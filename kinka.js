@@ -2,7 +2,7 @@
 	'use strict'
 
 	// Changeable constant (変更可能な定数パラメータ)
-	const ASSET_FILES = ["sprite.png", "sprite2.png", "sprite3.png"]
+	const ASSET_FILES = ["sprite1.png", "sprite2.png", "sprite3.png"]
 	const KINKA_SIZE = 50
 	const KINKA_BOTTOM_OFFSET = 10
 	const KINKA_BOTTOM_OFFSET_TAP = KINKA_SIZE + 30
