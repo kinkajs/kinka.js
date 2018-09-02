@@ -16,7 +16,7 @@ bower install kinkajs
 ## 使い方
 ```html
 <head>
-  <script src="https://rawgit.com/kinkajs/kinka.js/master/kinka.js"></script>
+  <script src="./bower_components/kinkajs/kinka.js"></script>
 </head>
 <body>
   <div class="kinka"></div>
@@ -49,7 +49,7 @@ const KINKA_BOTTOM_OFFSET = 10
 * `KINKA_SIZE` はキンカチョウの表示サイズ、 `KINKA_BOTTOM_OFFSET` はスプライト画像の下部の余白に対する調整値です
 
 ## Team kinka.js
-* Matsu : 企画、開発
+* まつ : 企画、開発
 * Market U : キンカチョウ監修、ドット絵
 * ハッちゃん : キンカチョウ (ドット絵モデル)
 
