@@ -287,7 +287,9 @@
 			} else {
 				left = e.clientX - KINKA_SIZE / 2
 				top = e.clientY - KINKA_SIZE + KINKA_BOTTOM_OFFSET
-			}			
+			}
+			left += window.pageXOffset
+			top += window.pageYOffset
 			kinkas[i].tapTarget = {top, left}
 		}
 	}
